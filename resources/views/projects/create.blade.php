@@ -20,7 +20,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <input type="text" id="title" name="title" class="form-control">
+                            <input type="text" id="title" name="title" class="form-control" required value="{{ old('title') }}">
                             <label for="title" class="">Project title</label>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="md-form">
-                            <textarea type="text" id="description" name="description" rows="2" class="form-control md-textarea"></textarea>
+                            <textarea type="text" id="description" name="description" rows="2" class="form-control md-textarea" required value="{{ old('description') }}"></textarea>
                             <label for="description">Project description</label>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
             <div class="text-center text-md-left">
                 <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Submit</a>
             </div>
-            <div class="status"></div>
+            @include('partials.error')
         </div>
         <!--Grid column-->
 

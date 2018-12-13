@@ -4,8 +4,10 @@
     <div class="row">
         <div class="col-12">
             <div class="title m-b-md">
-                <a href="/projects" class="btn btn-default">Back to all Projects</a>
+                
                 <h1>Edit Project</h1>
+                <a href="/projects" class="btn btn-default">Back to all Projects</a>
+                
             </div>
         </div>
     </div>

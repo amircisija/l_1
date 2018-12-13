@@ -4,8 +4,9 @@
     <div class="row">
         <div class="col-12">
             <div class="title m-b-md">
-                <a href="/projects/create" class="btn btn-light-green">New Project</a>
+                
                 <h1>All Projects</h1>
+                <a href="/projects/create" class="btn btn-light-green">New Project</a>
                 
             </div>
         </div>
@@ -25,8 +26,19 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ $project->title }}</h4>
                     <p class="card-text">{{ $project->description }}</p>
+
+                    <ul class="list-group">
+                        @foreach($project->tasks as $task)
+                        <li class="list-group-item">{{ $task->description }}</li>
+                        @endforeach
+                    </ul>
+
+                    <br>
+
                     <a href="/projects/{{ $project->id }}" class="btn btn-primary">Details</a>
                     <a href="/projects/{{ $project->id }}/edit" class="btn btn-success">Update</a>
+
+
                 </div>
             </div>
         </div>
