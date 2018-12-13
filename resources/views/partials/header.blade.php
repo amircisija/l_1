@@ -12,7 +12,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
@@ -26,7 +26,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav nav-flex-icons">
+{{--       <ul class="navbar-nav nav-flex-icons">
           <!-- Authentication Links -->
           @guest
           <li class="nav-item">
@@ -58,7 +58,7 @@
           </li>
           @endguest
 
-      </ul>
+      </ul> --}}
 
     </div>
     </div>

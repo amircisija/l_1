@@ -1,16 +1,17 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'Project')
 @section('content')
-
     <div class="row">
         <div class="col-12">
             <div class="title m-b-md">
-                <h1>Home page</h1>
+                <a href="/projects" class="btn btn-default">Back to all Projects</a>
+                <a href="/projects/{{ $project->id }}/edit" class="btn btn-success">Update</a>
+                <h1>Project {{ $project->title }}</h1>
             </div>
         </div>
     </div>
-    <div class="row">
-       
+    <div class="row py-5">
+      
 
         <div class="col-md-4">
             <div class="card">
@@ -22,14 +23,12 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">asd</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nobis eligendi excepturi, dolores fugit iure eum quis voluptates laudantium modi libero cumque, nostrum eaque maxime quaerat eveniet veritatis reiciendis nam!</p>
-                    <a href="#" class="btn btn-primary">Button</a>
+                    <h4 class="card-title">{{ $project->title }}</h4>
+                    <p class="card-text">{{ $project->description }}</p>
                 </div>
             </div>
         </div>
 
+ 
     </div>
-
-
 @endsection

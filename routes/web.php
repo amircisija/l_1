@@ -15,19 +15,16 @@ Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
-Route::get('/projects', 'ProjectsController@index');
-Route::get('/projects/create', 'ProjectsController@create');
-
-Route::post('/projects', 'ProjectsController@store');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('projects', 'ProjectsController');
 
 
-Route::prefix('admin')->group(function() {
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/home', 'AdminController@index')->name('admin.home');
-});
+
+
+
+
+
+
+
+
 
 

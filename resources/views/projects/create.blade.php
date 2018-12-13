@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.master')
 @section('title', 'Create Project')
 @section('content')
     <div class="row">
