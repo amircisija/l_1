@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small special-color-dark fixed-bottom">
+<footer class="page-footer font-small special-color-dark">
     <div class="container py-4">
         <div class="row">
             <div class="col-12">
