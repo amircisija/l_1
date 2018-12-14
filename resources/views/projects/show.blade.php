@@ -1,48 +1,50 @@
 @extends('layouts.master')
 @section('title', 'Projects')
 @section('content')
+<div class="container py-5">
     <div class="row">
         <div class="col-12">
             <div class="title m-b-md">
-                
-                <h1>All Projects</h1>
-                <a href="/projects/create" class="btn btn-light-green">New Project</a>
-                
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1>Project list</h1>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/projects/create" class="btn btn-light-green float-right">New Project</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <hr>
     <div class="row py-5">
+        <div class="card-columns">
         @foreach($projects as $project)
 
-        <div class="col-md-4">
             <div class="card">
-                <div class="view overlay">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                        alt="Card image cap">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
                 <div class="card-body">
-                    <h4 class="card-title">{{ $project->title }}</h4>
+                    <h5 class="card-title"><strong>{{ $project->title }}</strong></h5>
                     <p class="card-text">{{ $project->description }}</p>
 
-                    <ul class="list-group">
+                    <br>
+                    <h5><strong>Task list:</strong></h5>
+                    <ul class="list-group list-group-flush">
                         @foreach($project->tasks as $task)
-                        <li class="list-group-item">{{ $task->description }}</li>
+                            <li class="list-group-item  {{ $task->completed ? 'bg-success' : ''}}">{{ $task->description }}</li>
                         @endforeach
                     </ul>
 
                     <br>
 
-                    <a href="/projects/{{ $project->id }}" class="btn btn-primary">Details</a>
-                    <a href="/projects/{{ $project->id }}/edit" class="btn btn-success">Update</a>
+                    <a href="/projects/{{ $project->id }}" class="card-link">Details</a>
+                    <a href="/projects/{{ $project->id }}/edit" class="card-link">Update</a>
 
 
                 </div>
             </div>
-        </div>
 
         @endforeach
+        </div>
     </div>
+</div>
 @endsection

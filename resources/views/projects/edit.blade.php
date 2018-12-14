@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Edit Project')
 @section('content')
+
+<div class="container py-5">
     <div class="row">
         <div class="col-12">
             <div class="title m-b-md">
@@ -61,6 +63,6 @@
 
         </div>
         <!--Grid column-->
-
     </div>
+</div>
 @endsection

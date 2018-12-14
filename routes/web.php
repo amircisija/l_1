@@ -30,3 +30,7 @@ Route::patch('/tasks/{task}', 'ProjectTasksController@update');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

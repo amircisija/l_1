@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Project')
 @section('content')
+
+<div class="container py-5">
     <div class="row">
         <div class="col-12">
             <div class="title m-b-md">
@@ -21,13 +23,13 @@
                     <h4 class="card-title">{{ $project->title }}</h4>
                     <p class="card-text">{{ $project->description }}</p>
 
-                    @if($project->tasks->count())
+                    @if ($project->tasks->count())
                     <br>
                     <h6><strong>Tasks:</strong></h6>
 
                         @foreach($project->tasks as $task)
                         <form method="POST" action="/tasks/{{ $task->id }}">
-                        @method('Patch')
+                        @method('PATCH')
                         @csrf
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked{{ $task->id }}" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : ''}}>
@@ -46,12 +48,14 @@
               <div class="card-body">
                 <h4 class="card-title">Add new Task:</h4>
                 <hr>
+
+                
                 <form method="POST" action="/projects/{{ $project->id }}/tasks">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="md-form">
-                                <textarea type="text" id="descriptionx" name="description" rows="2" class="form-control md-textarea"></textarea>
+                                <textarea type="text" id="descriptionx" name="description" rows="2" class="form-control md-textarea" required></textarea>
                                 <label for="descriptionx">New Task description</label>
                             </div>
                         </div>
@@ -73,7 +77,6 @@
                 </div>
             </div>
         </div>
-
- 
     </div>
+</div>    
 @endsection

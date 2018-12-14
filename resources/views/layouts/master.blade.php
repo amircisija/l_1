@@ -22,21 +22,27 @@
             <div id="app" class="content">
 
                 @include('partials.header')
+
+
                 <main class="py-5">
-                    <div class="container py-5">
+                    <div class="container-full-bg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12"></div>
+                            </div>
+                        </div>
+                    </div>  
                         @yield('content')
-                    </div>
                 </main>
                 @include('partials.footer')
 
             </div>
 
-
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script> 
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
 
  
     </body>
