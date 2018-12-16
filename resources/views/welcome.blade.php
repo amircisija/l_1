@@ -12,24 +12,26 @@
         </div>
     </div>
     <div class="row">
+        <div class="card-columns">
+                @foreach($projects as $project)
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="view overlay">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                        alt="Card image cap">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">asd</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nobis eligendi excepturi, dolores fugit iure eum quis voluptates laudantium modi libero cumque, nostrum eaque maxime quaerat eveniet veritatis reiciendis nam!</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>{{ $project->title }}</strong></h5>
+                            <p class="card-text">{{ $project->description }}</p>
+
+                            <br>
+                            <h5><strong>Task list:</strong></h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($project->tasks as $task)
+                                    <li class="list-group-item  {{ $task->completed ? 'bg-success' : ''}}">{{ $task->description }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
+                @endforeach
         </div>
-
     </div>
 </div>
 @endsection
