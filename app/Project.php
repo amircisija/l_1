@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = [
-        'title',
-        'description',
-        'owner_id'
-    ];
+    protected $guarded = [];
+
+    public function owner() 
+    {
+        $this->belongsTo(User::class);
+    }
 
     public function tasks()
     {

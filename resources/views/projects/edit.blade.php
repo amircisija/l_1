@@ -46,11 +46,8 @@
                 <div class="text-center text-md-left">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
-
-
-
-                <div class="status"></div>
             </form>
+            @include('partials.error')
 
             <form method="POST" action="/projects/{{ $project->id }}">
                 @method('DELETE')

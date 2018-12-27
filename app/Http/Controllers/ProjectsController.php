@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use Mail;
 
 class ProjectsController extends Controller
 {
@@ -15,7 +16,7 @@ class ProjectsController extends Controller
 
     public function index() 
     {
-        $projects = Project::where('owner_id', auth()->id())->get(); 
+        $projects = auth()->user()->projects;
         return view('projects.show', compact('projects'));
     }
 
@@ -43,6 +44,11 @@ class ProjectsController extends Controller
         $validated['owner_id'] = auth()->id();
 
         Project::create($validated);
+
+        Mail::to($project->owner->email)->send(
+            new ProjectCreated($project)
+        );
+
         return redirect('/projects');
     }    
 
@@ -54,7 +60,11 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
-        $this->authorize('update', $project);         
+             
+        $validated = request()->validate([
+            'title' => ['required', 'min:4'],
+            'description' => ['required', 'min:10']
+        ]);        
         $project->update(request(['title', 'description']));
         return redirect('/projects');
     }
